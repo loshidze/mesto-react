@@ -7,7 +7,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
   const [userDescription, setUserDescription] = React.useState();
   const [userAvatar, setUserAvatar] = React.useState();
   const [cards, setCards] = React.useState([]);
-  
+
   React.useEffect(() => {
     Promise.all([api.getProfileInfo(), api.getCards()])
       .then(([profileData, cards]) => {
@@ -34,7 +34,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
         </section>
         <section className="gallery" aria-label="галерея">
           {cards.map((card) => (
-            <Card card={card} onCardClick={onCardClick} />
+            <Card card={card} key={card._id} onCardClick={onCardClick} />
           ))}
 
         </section>
