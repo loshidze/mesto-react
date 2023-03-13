@@ -22,10 +22,7 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       headers: this._headers,
       method: 'PATCH',
-      body: JSON.stringify({
-        name: data.contentname,
-        about: data.occupation
-      })
+      body: JSON.stringify(data)
   })
     .then(this._checkResponse);
   }
@@ -41,10 +38,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       headers: this._headers,
       method: 'POST',
-      body: JSON.stringify({
-        name: data.cardname,
-        link: data.link
-      })
+      body: JSON.stringify(data)
   })
     .then(this._checkResponse);
   }
@@ -53,11 +47,17 @@ class Api {
     return fetch(`${this._url}/users/me/avatar`, {
       headers: this._headers,
       method: 'PATCH',
-      body: JSON.stringify({
-        avatar: data.avatarlink
-      })
+      body: JSON.stringify(data)
   })
     .then(this._checkResponse);
+  }
+
+  toggleLikeCard(id, isLiked) {
+    if (isLiked) {
+      return this.like(id);
+    } else {
+      return this.dislike(id);
+    }
   }
 
   like(id) {
