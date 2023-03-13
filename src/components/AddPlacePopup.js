@@ -20,7 +20,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   }
 
   return (
-    <PopupWithForm name={'card'} title={'Новое место'} buttonSubmit={'Создать'} isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
+    <PopupWithForm name={'card'} title='Новое место' buttonSubmit={'Создать'} isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
       <input className="popup__input" ref={inputCardName} id="cardname" type="text" name="cardname" placeholder="Название" minLength="2" maxLength="30" required/>
       <span className="cardname-error popup__input-text-error"></span>
       <input className="popup__input" ref={inputCardImage} id="link" type="url" name="link" placeholder="Ссылка на картинку" required/>

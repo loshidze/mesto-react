@@ -100,6 +100,9 @@ function App() {
       setCards([res, ...cards])
       closeAllPopups()
     })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   return (
